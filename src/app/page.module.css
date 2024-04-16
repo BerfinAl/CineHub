@@ -1,0 +1,17 @@
+.bannertext {
+  padding: 5vh 2rem;
+  font-size: 3.3rem;
+}
+
+.highlight {
+  background: -webkit-linear-gradient(
+    360deg,
+    rgba(0, 119, 255, 1) 0%,
+    rgba(255, 215, 0, 1) 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+  font-weight: 500;
+}

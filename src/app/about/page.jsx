@@ -1,8 +1,9 @@
+export const metadata = {
+  title: "About",
+  description: "About Desc",
+};
 
-export default function AboutPage() {
-  return (
-   <>
-    About Page
-   </>
-  );
+
+export default async function AboutPage() {
+  return <>About Page</>;
 }
