@@ -1,6 +1,4 @@
 import { default as mongoose } from "mongoose";
-import { User } from "./modals";
-
 
 const connection = {};
 

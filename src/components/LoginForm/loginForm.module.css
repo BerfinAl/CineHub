@@ -1,0 +1,28 @@
+.loginInput,
+.loginBtn {
+  border-radius: 9999px;
+  padding: 3px 25px;
+  font-size: 17px;
+  font-weight: 500;
+  height: 55px;
+}
+
+.loginBtn {
+  margin-top: 15px;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #d90429;
+  color: white;
+  border: none;
+}
+
+@media (min-width: 1200px) {
+  .loginInput {
+    width: calc(50% - (var(--bs-gutter-x) * 0.5)) ;
+  }
+
+  .inputOne {
+    margin-right: calc(var(--bs-gutter-x) * 0.5);
+  }
+}

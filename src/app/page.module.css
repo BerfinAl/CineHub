@@ -1,17 +1,85 @@
-.bannertext {
-  padding: 5vh 2rem;
-  font-size: 3.3rem;
+.homeBanner {
+  margin-top: -12vh;
+  height: 75vh;
 }
 
-.highlight {
-  background: -webkit-linear-gradient(
-    360deg,
-    rgba(0, 119, 255, 1) 0%,
-    rgba(255, 215, 0, 1) 100%
-  );
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.bannertextWrapper {
+  position: absolute;
+  top: 17%;
+  padding: 5vh 2rem;
+  left: 1%;
+}
+.bannertext {
+  font-size: 3.3rem;
+  color: white;
+  z-index: 2;
+  /* width: 58%; */
   text-transform: uppercase;
-  font-weight: 500;
+}
+
+.bannerActionBtn {
+  margin-top: 30px;
+  display: flex;
+  position: relative;
+  width: 125px;
+  height: 125px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: black;
+}
+
+.bannerActionBtn:hover .joinArrow {
+  transform: rotate(-45deg);
+  transition: 1000ms all ease;
+}
+
+.bannerActionBtn:hover svg {
+  animation: rotate 10s linear infinite;
+}
+
+.bannerActionBtn:hover svg text {
+  fill: #000;
+}
+
+.joinArrow {
+  position: absolute;
+  z-index: 2;
+  top: 31px;
+  transition: 1000ms all ease;
+}
+
+.dot {
+  border-radius: 100%;
+  width: 135px;
+  height: 135px;
+  background-color: white;
+  transition: 0.5s all ease-out;
+  right: -4px;
+  transform: scale(0);
+  position: absolute;
+}
+
+.bannerActionBtn:hover .dot {
+  transform: scale(1);
+  transform-origin: center;
+  transition: 0.5s all ease-out;
+}
+
+.moviesSection {
+  width: 100%;
+  padding: 2rem;
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }

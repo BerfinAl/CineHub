@@ -10,7 +10,7 @@ async function Navbar() {
   const session = await auth();
 
   return (
-    <nav className={`${styles.nav} row`}>
+    <nav className={`${styles.nav} row flex-container`}>
       <div className="col-12 h-50">
         <Link href="/" className={`${styles.logoWrapper}`}>
 
@@ -30,9 +30,9 @@ async function Navbar() {
           />
         </Link>
       </div>
-      <ul className={`${styles.navlinks} col-8`}>
+    {/*   <ul className={`${styles.navlinks} col-8`}> */}
         <Links session={session} />
-      </ul>
+   {/*    </ul> */}
     </nav>
   );
 }

@@ -23,7 +23,6 @@ const userSchema = new mongoose.Schema(
     },
     password: {
       type: String,
-      required: true,
       min: 5,
       max: 15,
     },
@@ -39,4 +38,4 @@ const userSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-export const User = mongoose.models.User ||  mongoose.model("User", userSchema);
+export const User = mongoose.models?.User ||  mongoose.model("User", userSchema);

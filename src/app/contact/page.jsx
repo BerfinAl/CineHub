@@ -1,9 +1,9 @@
-import {addUser} from "../../lib/action";
 
 export default function ContactPage() {
   return (
     <div>
-      <form action={addUser}>
+  {/*     <form action={addUser}> */}
+      <form >
         <input type="text" name="name" min={3} max={50} placeholder="name" />
         <input
           type="text"

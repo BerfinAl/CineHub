@@ -5,16 +5,15 @@ import MovieDetail from "@/components/Movie Detail/MovieDetail";
 export const generateMetadata = async ({ params }) => {
   const { movieId } = params;
 
-// in nextjs, if we try to fetch the same data multipl times, 
-// next only fetches once
-  const movie= await getData(movieId);
+  // in nextjs, if we try to fetch the same data multipl times,
+  // next only fetches once
+  const movie = await getData(movieId);
 
   return {
     title: movie.original_title,
     description: movie.overview,
   };
 };
-
 
 const getData = async (movieId) => {
   const options = {
@@ -44,6 +43,7 @@ const getData = async (movieId) => {
 };
 
 const Page = async ({ params }) => {
+
   const { movieId } = params;
 
   const data = await getData(movieId);

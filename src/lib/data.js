@@ -5,10 +5,10 @@ import { User } from "./modals";
 import { unstable_noStore as noStore } from "next/cache";
 
 export async function getUsers() {
-    /* unstable_noStore is equivalent to cache: 'no-store' on a fetch
+  /* unstable_noStore is equivalent to cache: 'no-store' on a fetch
     unstable_noStore is preferred over export const dynamic = 'force-dynamic' 
     as it is more granular and can be used on a per-component basis */
-    noStore();
+  noStore();
   try {
     connectToDb();
     const users = await User.find();
@@ -19,10 +19,10 @@ export async function getUsers() {
   }
 }
 
-export async function getUser(id) {
+export async function getUser(username) {
   try {
     connectToDb();
-    const user = await User.findById(id);
+    const user = await User.findOne({ username: username }).lean();
     return user;
   } catch (err) {
     console.log(err);
