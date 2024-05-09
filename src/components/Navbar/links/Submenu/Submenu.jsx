@@ -4,7 +4,8 @@ import Link from "next/link";
 import styles from "../link.module.css";
 import LogoutSvg from "@/components/LogoutSvg/LogoutSvg";
 
-const Submenu = ({ content }) => {
+const Submenu = ({ content, parent }) => {
+
   return (
     <motion.div
       initial={{
@@ -30,12 +31,17 @@ const Submenu = ({ content }) => {
             {child.logout ? (
               <form key={i} action={handleLogout}>
                 <div>
-                
-                  <button className={styles.logoutBtn}>   <LogoutSvg /> {child.title}</button>
+                  <button className={styles.logoutBtn}>
+                    <LogoutSvg /> {child.title}
+                  </button>
                 </div>
               </form>
             ) : (
-              <Link key={i} href={child?.path} className={styles.submenuLink}>
+              <Link
+                key={i}
+                href={`/${parent}${child?.path}`}
+                className={styles.submenuLink}
+              >
                 {child?.title}
               </Link>
             )}

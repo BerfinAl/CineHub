@@ -13,23 +13,24 @@ const LinkItem = ({
   handleSetSelected,
 }) => {
   const isAdmin = session?.user?.isAdmin;
+  const username = session?.user.username || session?.user.name.split(" ")[0];
 
 
   const isLinkVisible =
     (!link.isAdminMenu || isAdmin) && (!link.isUserMenu || session?.user);
 
-  if (link.title === "Log in" && session) {
+  if (link.login && session) {
     return null;
   }
 
-  const hasSubmenu = Object.keys(link).includes("children");
+  const hasSubmenu = link.children.length > 0;
 
   if (isLinkVisible) {
     if (hasSubmenu) {
-      return (
-        <li
+      if (link.isUserMenu) {
+       return( <li
           className={`${
-            pathname.startsWith(link.path) ? `${styles.active}` : ""
+            pathname.startsWith(username) ? `${styles.active}` : ""
           } ${styles.navlinks} index-button ${
             selected === index ? "selected" : ""
           }`}
@@ -37,14 +38,39 @@ const LinkItem = ({
           id={`shift-index-${index}`}
           onMouseEnter={() => handleSetSelected(index)}
         >
-          <div className={` border-0`}>{link.title.toUpperCase()}</div>
+          <div className={` border-0`}>{username.toUpperCase()}</div>
           <FiChevronDown
-            className={`{styles.chevron} ${selected === index ? styles.rotate : ""}`}
+            className={`{styles.chevron} ${
+              selected === index ? styles.rotate : ""
+            }`}
           />
 
           {selected === index && <Submenu content={link.children} />}
         </li>
-      );
+       )
+      } else {
+        return (
+          <li
+            className={`${
+              pathname.startsWith(link.path) ? `${styles.active}` : ""
+            } ${styles.navlinks} index-button ${
+              selected === index ? "selected" : ""
+            }`}
+            key={index}
+            id={`shift-index-${index}`}
+            onMouseEnter={() => handleSetSelected(index)}
+          >
+            <div className={` border-0`}>{link.title.toUpperCase()}</div>
+            <FiChevronDown
+              className={`{styles.chevron} ${
+                selected === index ? styles.rotate : ""
+              }`}
+            />
+
+            {selected === index && <Submenu parent={link.path} content={link.children} />}
+          </li>
+        );
+      }
     } else
       return (
         <li

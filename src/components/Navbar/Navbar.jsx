@@ -4,10 +4,13 @@ import styles from "../../app/layout.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import { auth } from "@/lib/auth";
+import { getMenuLinks } from "@/utils/utils";
 
 async function Navbar() {
 
   const session = await auth();
+
+  const links = await getMenuLinks();
 
   return (
     <nav className={`${styles.nav} row flex-container`}>
@@ -31,7 +34,7 @@ async function Navbar() {
         </Link>
       </div>
     {/*   <ul className={`${styles.navlinks} col-8`}> */}
-        <Links session={session} />
+        <Links session={session} links={links} />
    {/*    </ul> */}
     </nav>
   );

@@ -4,10 +4,23 @@ import Link from "next/link";
 import CurvedText from "@/components/CurvedText/CurvedText";
 import { auth } from "@/lib/auth";
 import MoviesSection from "@/components/MoviesSection/MoviesSection";
+import { getMenuLinks } from "@/utils/utils";
 
 export default async function Home() {
   const session = await auth();
   const isLoggedIn = session?.user;
+
+  const links = await getMenuLinks();
+  const discover = links.filter((link) => link.title === "Discover")[0];
+
+  const discoverSectionElements = discover.children.map((section) => {
+
+    return (
+      <section className={styles.moviesSection}>
+        <MoviesSection type={section.title} link={section.path} />
+      </section>
+    );
+  });
 
   return (
     <>
@@ -49,16 +62,8 @@ export default async function Home() {
         />
       </div>
 
-      <section className={styles.moviesSection}>
-        <MoviesSection type="New Releases" />
-      </section>
+      {discoverSectionElements}
 
-      <section className={styles.moviesSection}>
-        <MoviesSection type="Trending" />
-      </section>
-      <section className={styles.moviesSection}>
-        <MoviesSection type="Upcoming" />
-      </section>
     </>
   );
 }

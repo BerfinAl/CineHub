@@ -1,3 +1,6 @@
+import { connectToDb } from "@/lib/connectToDb";
+import { Link } from "@/lib/modals";
+
 const options = {
   method: "GET",
   headers: {
@@ -69,5 +72,17 @@ export async function fetchMoviesByType(type, limit = 4) {
       break;
   }
 
-  return movies.results.slice(0, limit);
+  return movies.results?.slice(0, limit);
+}
+
+export async function getMenuLinks() {
+  try {
+    connectToDb();
+    const links = await Link.find();
+    const data = JSON.parse(JSON.stringify(links));
+    return data;
+  } catch (err) {
+    console.log(err);
+    throw new Error("Failed to fetch links!");
+  }
 }

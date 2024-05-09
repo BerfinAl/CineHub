@@ -28,7 +28,7 @@ const userSchema = new mongoose.Schema(
     },
     img: {
       type: String,
-     default: "/images/user.png",
+      default: "/images/user.png",
     },
     isAdmin: {
       type: Boolean,
@@ -38,4 +38,31 @@ const userSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-export const User = mongoose.models?.User ||  mongoose.model("User", userSchema);
+const linkSchema = new mongoose.Schema({
+  title: String,
+  path: String,
+  children: Array,
+  isUserMenu: {
+    type: Boolean,
+    default: false,
+  },
+  isBtn: {
+    type: Boolean,
+    default: false,
+  },
+  isAdminMenu: {
+    type: Boolean,
+    default: false,
+  },
+  logout: {
+    type: Boolean,
+    default: false,
+  },
+  login: {
+    type: Boolean,
+    default: false,
+  },
+});
+
+export const Link = mongoose.models?.Link || mongoose.model("Link", linkSchema);
+export const User = mongoose.models?.User || mongoose.model("User", userSchema);

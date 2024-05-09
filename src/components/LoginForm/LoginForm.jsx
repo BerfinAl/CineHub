@@ -47,7 +47,7 @@ console.log(formState)
           name="password"
           required
         />
-        <button disabled={!formState} className={styles.loginBtn}>Login</button>
+        <button className={styles.loginBtn}>Login</button>
       </form>
     </>
   );
