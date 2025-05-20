@@ -1,0 +1,12 @@
+.providerBtn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border-radius: 9999px;
+  padding: 6px 25px;
+  font-size: 17px;
+  font-weight: 500;
+  gap: 20px;
+}

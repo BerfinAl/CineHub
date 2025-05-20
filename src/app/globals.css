@@ -1,3 +1,5 @@
+@import "react-toastify/dist/ReactToastify.css";
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -19,13 +21,107 @@ ul {
 }
 
 body {
+  color: #fff;
   min-height: 100vh;
-  background-color: #ececec;
+  background-color: #141414;
   display: flex;
   flex-direction: column;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+button[disabled] {
+  filter: opacity(0.7);
 }
 
 .row {
-  margin: 0;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+  margin: 0;
 }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+
+.pageContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.tab-content > .active {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.nav-link {
+  color: #9898a1;
+  margin-bottom: 1rem;
+  padding: 0.2rem 0.8rem;
+  font-size: 0.95rem;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  color: #fff;
+}
+
+.movies-wrapper .swiper {
+  overflow: visible !important;
+}
+
+.movies-wrapper .swiper-pagination-bullets {
+  bottom: unset !important;
+  top: -38px !important;
+  width: 100% !important;
+  width: 350px !important;
+  right: 0 !important;
+  left: unset !important;
+  display: flex !important;
+  justify-content: flex-end !important;
+  align-items: center !important;
+  height: 25px !important;
+}
+
+.movies-wrapper .swiper-pagination-bullet {
+  border-radius: 2px !important;
+  background-color: #ffffff !important;
+  display: inline-block !important;
+  height: 2px !important;
+  margin-left: 1px !important;
+  width: 12px !important;
+}
+
+.movies-wrapper .swiper-pagination-bullet-active {
+  opacity: var(--swiper-pagination-bullet-opacity, 1);
+  background: #aaa !important;
+  width: 20px !important;
+  border-radius: 2px !important;
+  display: inline-block !important;
+  height: 2px !important;
+}
+
+.movies-wrapper .swiper-button-prev:after,
+.movies-wrapper .swiper-button-next:after {
+  font-size: 28px !important;
+}
+
+.movies-wrapper .swiper-button-prev {
+display: none !important;
+}
+
+.movies-wrapper .swiper-button-next {
+opacity: 0 !important;
+transition: opacity ease-in 200ms;
+}
+
+.movies-wrapper .swiper:hover .swiper-button-next {
+opacity: 1 !important;
+transition: opacity ease-in 200ms;
+}
+
+.movies-wrapper .swiper-button-prev,
+.movies-wrapper .swiper-button-next {
+  color: #ffffff !important;
+}
+
+.swiper-slide {
+  width: auto !important;
+}

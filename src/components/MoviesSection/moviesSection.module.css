@@ -1,0 +1,28 @@
+.sectionTitleWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 15px;
+}
+
+.sectionTitle {
+  font-size: 1.2rem;
+  line-height: 1.25vw;
+  margin-bottom: 0;
+}
+
+.sectionTitle:hover .seeAll {
+  opacity: 1;
+  transition: opacity ease-in 200ms;
+}
+
+.seeAll {
+  font-size: 1rem;
+  color: #aaa;
+  margin-left: 15px;
+  opacity: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: opacity ease-in 200ms;
+}

@@ -3,26 +3,24 @@ import Links from "./links/Links";
 import styles from "../../app/layout.module.css";
 import Image from "next/image";
 import Link from "next/link";
-import { auth } from "@/lib/auth";
+import { getMenuLinks } from "@/utils/utils";
 
 async function Navbar() {
-
-  const session = await auth();
+  const links = await getMenuLinks();
 
   return (
-    <nav className={`${styles.nav} row`}>
-      <div className="col-12 h-50">
+    <nav className={`${styles.nav} row flex-container`}>
+      <div className="col-4">
         <Link href="/" className={`${styles.logoWrapper}`}>
-
           <Image
-            priority={true} 
+            priority={true}
             src="/images/logo.png"
             width={0}
             height={0}
             sizes="100vw"
             style={{
               width: "auto",
-              height: "auto",
+              height: "35px",
               maxHeight: "100%",
               maxWidth: "100%",
             }} // optional
@@ -30,9 +28,7 @@ async function Navbar() {
           />
         </Link>
       </div>
-      <ul className={`${styles.navlinks} col-8`}>
-        <Links session={session} />
-      </ul>
+      <Links links={links} />
     </nav>
   );
 }

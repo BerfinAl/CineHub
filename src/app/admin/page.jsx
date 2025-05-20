@@ -5,7 +5,7 @@
 /* Because the underlying network calls are always asynchronous, 'use server' can only be used on async functions. */
 
 import { getUsers } from "../../lib/data";
-import UserCard from "@/components/User/user";
+import UserCard from "@/components/User/UserCard";
 import styles from "./users.module.css";
 
 export default async function AdminPage() {

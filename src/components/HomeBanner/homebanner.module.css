@@ -1,0 +1,95 @@
+.homeBanner {
+  margin-top: -12vh;
+  height: 100vh;
+  background: rgb(2, 0, 36);
+  background: -moz-linear-gradient(
+    180deg,
+    rgba(2, 0, 36, 0) 0%,
+    rgba(20, 20, 20, 1) 89%
+  );
+  background: -webkit-linear-gradient(
+    180deg,
+    rgba(2, 0, 36, 0) 0%,
+    rgba(20, 20, 20, 1) 89%
+  );
+  background: linear-gradient(
+    180deg,
+    rgba(2, 0, 36, 0) 0%,
+    rgba(20, 20, 20, 1) 89%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#020024",endColorstr="#141414",GradientType=1);
+}
+
+.bannertextWrapper {
+  position: absolute;
+  top: 17%;
+  padding: 5vh 2rem;
+  left: 1%;
+}
+
+.bannertext {
+  font-size: 2.9rem;
+  color: white;
+  z-index: 2;
+  /* width: 58%; */
+  text-transform: uppercase;
+}
+
+.bannerActionBtn {
+  margin-top: 30px;
+  display: flex;
+  position: relative;
+  width: 125px;
+  height: 125px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: black;
+}
+
+.bannerActionBtn:hover .joinArrow {
+  transform: rotate(-45deg);
+  transition: 1000ms all ease;
+}
+
+.bannerActionBtn:hover svg {
+  animation: rotate 10s linear infinite;
+}
+
+.bannerActionBtn:hover svg text {
+  fill: #000;
+}
+
+.joinArrow {
+  position: absolute;
+  z-index: 2;
+  top: 31px;
+  transition: 1000ms all ease;
+}
+
+.dot {
+  border-radius: 100%;
+  width: 135px;
+  height: 135px;
+  background-color: white;
+  transition: 0.5s all ease-out;
+  right: -4px;
+  transform: scale(0);
+  position: absolute;
+}
+
+.bannerActionBtn:hover .dot {
+  transform: scale(1);
+  transform-origin: center;
+  transition: 0.5s all ease-out;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
