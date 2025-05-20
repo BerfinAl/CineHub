@@ -43,7 +43,6 @@ const getData = async (movieId) => {
 };
 
 const Page = async ({ params }) => {
-
   const { movieId } = params;
 
   const data = await getData(movieId);

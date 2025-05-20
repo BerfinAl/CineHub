@@ -1,8 +1,10 @@
 .navlinksContainer {
-  width: 100%;
+margin: 0;
   display: flex;
   justify-content: flex-end;
   gap: 2%;
+  height: 100%;
+  align-items: center;
 }
 
 .navlinks {
@@ -12,7 +14,7 @@
   position: relative;
   border-radius: 9999px;
   padding: 6px 25px;
-  font-size: 17px;
+  font-size: .95rem;
   font-weight: 500;
   gap: 4px;
   transition: background-color 0.3s, color 0.3s;
@@ -21,12 +23,15 @@
 
 .navlinks:hover {
   cursor: pointer;
+}
+
+.navlinks:not(:has(.profilePic)):hover {
   background-color: #262626;
   color: #fff;
 }
 
 .active {
-  border-bottom: 2px solid #ffffff52;
+  border-bottom: 1px solid #ffffff52;
   background-color: black;
   color: #fff;
 }
@@ -39,7 +44,7 @@
   position: relative;
   border-radius: 9999px;
   padding: 6px 25px;
-  font-size: 17px;
+  font-size: .95rem;
   font-weight: 500;
   gap: 4px;
   transition: background-color 0.3s, color 0.3s;
@@ -81,9 +86,10 @@
 
 .submenuContainer {
   position: absolute;
-  left: 0%;
-  top: calc(100% + 8px);
-  width: 100%;
+  left: -20px;
+  top: calc(100% + 14px);
+  min-width: max-content;
+  width: auto;
   border-radius: 12px; /* rounded-lg */
   border: 1px solid #666; /* border-neutral-600 */
   background: linear-gradient(
@@ -93,6 +99,7 @@
     /* via-neutral-900 */ #242424 /* to-neutral-800 */
   );
   padding: 10px 0;
+  opacity: 1;
 }
 
 .rotate {
@@ -106,4 +113,13 @@
   left: 0;
   right: 0;
   height: 24px;
+}
+
+.profilePic {
+  background-position: center;
+  background-size: cover;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  filter: brightness(0.8);
 }

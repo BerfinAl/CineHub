@@ -11,17 +11,15 @@ function LoginForm() {
 
   const router = useRouter();
 
-console.log(formState)
-
   function handleCredErr() {
     toast.error(formState?.message, {
       position: "top-right",
-      autoClose: 3000,
+      autoClose: 1000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
-      theme: "light",
+      theme: "dark",
     });
   }
 

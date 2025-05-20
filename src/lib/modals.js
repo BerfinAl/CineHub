@@ -62,7 +62,50 @@ const linkSchema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
+  order: {
+    type: Number,
+    unique: true,
+  },
 });
 
+const likesSchema = new mongoose.Schema({
+  userEmail: {
+    type: String,
+    required: true,
+  },
+  movieID: {
+    type: Number,
+    required: true,
+  },
+});
+
+const watchlistSchema = new mongoose.Schema({
+  userEmail: {
+    type: String,
+    required: true,
+  },
+  movieID: {
+    type: Number,
+    required: true,
+  },
+});
+
+const watchedMoviesListSchema = new mongoose.Schema({
+  userEmail: {
+    type: String,
+    required: true,
+  },
+  movieID: {
+    type: Number,
+    required: true,
+  },
+});
+
+export const WatchedMovies =
+  mongoose.models?.WatchedMovies || mongoose.model("WatchedMovies", watchedMoviesListSchema);
+export const Watchlist =
+  mongoose.models?.Watchlist || mongoose.model("Watchlist", watchlistSchema);
+export const Like =
+  mongoose.models?.Like || mongoose.model("Like", likesSchema);
 export const Link = mongoose.models?.Link || mongoose.model("Link", linkSchema);
 export const User = mongoose.models?.User || mongoose.model("User", userSchema);

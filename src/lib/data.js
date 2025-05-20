@@ -19,13 +19,19 @@ export async function getUsers() {
   }
 }
 
-export async function getUser(username) {
+export async function getUser(email) {
   try {
     connectToDb();
-    const user = await User.findOne({ username: username }).lean();
+    const user = await User.findOne({ email: email }).lean();
     return user;
   } catch (err) {
     console.log(err);
     throw new Error("Failed to fetch user!");
   }
 }
+
+/* export const getFavorites = async (email) => {
+  const user = await getUser(email);
+  return user?.favorites;
+};
+ */

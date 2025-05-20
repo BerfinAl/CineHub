@@ -1,0 +1,68 @@
+.movieCard {
+  gap: 10px;
+}
+
+.movieTitleWrapper {
+   width: 100%; 
+  text-align: center;
+  font-size: 16px;
+  color: #9898a1;
+}
+
+.movieImgWrapper {
+/*   width: 100%; */
+  position: relative;
+}
+
+.actionsBox {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  display: flex;
+  gap: 4px;
+  padding: 7px 7px;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.actionBtn {
+  background: #000000a1;
+  border: none;
+  color: white;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.actionBtn:hover {
+  cursor: pointer;
+}
+
+.favorited {
+  animation-name: scaleupanddown;
+  animation-duration: 1s;
+  animation-delay: 100ms;
+  animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+@keyframes scaleupanddown {
+  0% {
+    transform: scale(1.1);
+  }
+  30% {
+    transform: scale(1.15);
+  }
+  60% {
+    transform: scale(1.17);
+  }
+  90% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

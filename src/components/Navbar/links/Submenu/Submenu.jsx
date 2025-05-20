@@ -1,10 +1,19 @@
-import { handleLogout } from "@/lib/action";
+/* import { handleLogout } from "@/lib/action"; */
 import { motion } from "framer-motion";
 import Link from "next/link";
 import styles from "../link.module.css";
 import LogoutSvg from "@/components/LogoutSvg/LogoutSvg";
+import { signOut } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 const Submenu = ({ content, parent }) => {
+  const router = useRouter();
+
+  async function handleLogout() {
+    await signOut({ redirect: false }).then(() => {
+      router.refresh(); // Redirect to the dashboard page after signing out
+    });
+  }
 
   return (
     <motion.div
@@ -29,13 +38,9 @@ const Submenu = ({ content, parent }) => {
         return (
           <div className="overflow-hidden" key={i}>
             {child.logout ? (
-              <form key={i} action={handleLogout}>
-                <div>
-                  <button className={styles.logoutBtn}>
-                    <LogoutSvg /> {child.title}
-                  </button>
-                </div>
-              </form>
+              <button className={styles.logoutBtn} onClick={handleLogout}>
+                <LogoutSvg /> {child.title}
+              </button>
             ) : (
               <Link
                 key={i}

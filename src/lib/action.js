@@ -3,7 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { connectToDb } from "./connectToDb";
 import { User } from "./modals";
-import { auth, signIn, signOut } from "./auth";
+import { signIn, signOut } from "./auth";
 import bcrypt from "bcryptjs";
 
 export async function register(prevState, formData) {
@@ -20,13 +20,13 @@ export async function register(prevState, formData) {
     const usedUsername = await User.findOne({ username: username });
 
     if (usedEmail) {
-      return { success: false, message: "already have a user with this email" };
+      return { success: false, message: "Already have a user with this email" };
     }
 
     if (usedUsername) {
       return {
         success: false,
-        message: "already have a user with this username",
+        message: "Already have a user with this username",
       };
     }
 
@@ -78,7 +78,7 @@ export async function handleGitHubLogin() {
 
 export async function login(prevState, formData) {
   const { email, password } = Object.fromEntries(formData);
-console.log(email, password)
+  console.log(email, password);
   try {
     await signIn("credentials", { email, password });
     return { success: true, message: "logged in!" };
@@ -92,10 +92,7 @@ console.log(email, password)
 }
 
 export async function handleLogout() {
-  const session = await auth();
-
-  if (session) {
-    const { provider } = session;
-    await signOut(provider);
-  }
+  await signOut();
 }
+
+

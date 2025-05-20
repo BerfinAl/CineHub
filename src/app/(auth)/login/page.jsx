@@ -10,7 +10,7 @@ export default async function LoginPage() {
       <div className={styles.titleWrapper}>
         <h2 className={styles.title}>Log in to your account</h2>
         <Link className={styles.registerLink} href={"/register"}>
-          Don't have an account? <b>Register!</b>
+          Dont have an account? <b>Register!</b>
         </Link>
       </div>
 

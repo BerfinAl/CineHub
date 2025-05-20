@@ -7,8 +7,10 @@ async function UserLayout({ children }) {
 
   let user;
 
+console.log("hello")
+
   if (session?.user) {
-    user = session.user;
+    user = session?.user;
   }
 
   return (

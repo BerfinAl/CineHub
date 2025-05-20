@@ -9,12 +9,14 @@ import { User } from "./modals";
 import { authConfig } from "./auth.config";
 
 async function loginFunc(cred) {
+  if (!cred.email || !cred.password) {
+    throw new Error("Email and password are required.");
+  }
+
+  connectToDb();
   try {
-    connectToDb();
     const user = await User.findOne({ email: cred.email });
-
     const isPaswordCorrect = await bcrypt.compare(cred.password, user.password);
-
     if (!user || !isPaswordCorrect) {
       throw new Error("wrong credentials");
     }
